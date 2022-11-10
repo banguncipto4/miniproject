@@ -18,7 +18,9 @@ func SetupRoute(server *echo.Echo) {
 	privateRoutes.Use(middleware.JWTWithConfig(middleware.JWTConfig{
 		SigningKey: []byte("secretkey"),
 	}))
+
 	// routes for user
+
 	privateRoutes.GET("/user", controller.GetAllUser)
 	privateRoutes.GET("/user/:id", controller.GetByIdUser)
 	privateRoutes.PUT("/user/:id", controller.UpdateUser)
@@ -34,17 +36,17 @@ func SetupRoute(server *echo.Echo) {
 
 	// routes for publisher
 
-	privateRoutes.POST("/game", controller.CreatePublisher)
-	privateRoutes.GET("/game", controller.GetAllPublisher)
-	privateRoutes.GET("/game/:id", controller.GetByIdPublisher)
-	privateRoutes.PUT("/game/:id", controller.UpdatePublisher)
-	privateRoutes.DELETE("/game/:id", controller.DeletePublisher)
+	privateRoutes.POST("/publisher", controller.CreatePublisher)
+	privateRoutes.GET("/publisher", controller.GetAllPublisher)
+	privateRoutes.GET("/publisher/:id", controller.GetByIdPublisher)
+	privateRoutes.PUT("/publisher/:id", controller.UpdatePublisher)
+	privateRoutes.DELETE("/publisher/:id", controller.DeletePublisher)
 
 	// routes for rating
 
-	privateRoutes.POST("/game", controller.CreateRating)
-	privateRoutes.GET("/game", controller.GetAllRating)
-	privateRoutes.GET("/game/:id", controller.GetByIdRating)
-	privateRoutes.PUT("/game/:id", controller.UpdateRating)
-	privateRoutes.DELETE("/game/:id", controller.DeleteRating)
+	privateRoutes.POST("/rating", controller.CreateRating)
+	privateRoutes.GET("/rating", controller.GetAllRating)
+	privateRoutes.GET("/rating/:id", controller.GetByIdRating)
+	privateRoutes.PUT("/rating/:id", controller.UpdateRating)
+	privateRoutes.DELETE("/rating/:id", controller.DeleteRating)
 }

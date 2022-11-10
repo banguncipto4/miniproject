@@ -7,17 +7,17 @@ import (
 )
 
 type Game struct {
-	Id_game      uint      `json:"id_game" gorm:"primaryKey"`
-	CreatedAt    time.Time `json:"created_at"`
-	UpdatedAt    time.Time `json:"updated_at"`
-	Game_name    string    `json:"game_name"`
-	Game_type    string    `json:"game_type"`
-	Game_desc    string    `json:"game_desc"`
-	Game_access  string    `json:"game_access"`
-	Publisher    Publisher `json:"publisher" gorm:"foreignKey:Id_publisher"`
-	Id_publisher uint      `json:"id_publisher"`
-	Rating       Rating    `json:"rating" gorm:"foreignKey:Id_rating"`
-	Id_rating    uint      `json:"id_rating"`
+	ID          uint      `json:"id_game" gorm:"primaryKey"`
+	CreatedAt   time.Time `json:"created_at"`
+	UpdatedAt   time.Time `json:"updated_at"`
+	Game_name   string    `json:"game_name"`
+	Game_type   string    `json:"game_type"`
+	Game_desc   string    `json:"game_desc"`
+	Game_access string    `json:"game_access"`
+	Publisher   Publisher `json:"publisher"`
+	PublisherID uint      `json:"id_publisher"`
+	Rating      Rating    `json:"rating"`
+	RatingID    uint      `json:"id_rating"`
 }
 
 type InputGame struct {
@@ -25,6 +25,8 @@ type InputGame struct {
 	Game_type   string `json:"game_type" validate:"required"`
 	Game_desc   string `json:"game_desc" validate:"required"`
 	Game_access string `json:"game_access" validate:"required"`
+	PublisherID uint   `json:"id_publisher"`
+	RatingID    uint   `json:"id_rating"`
 }
 
 func (input *InputGame) ValidasiGame() error {

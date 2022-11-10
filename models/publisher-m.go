@@ -7,7 +7,7 @@ import (
 )
 
 type Publisher struct {
-	Id_publisher   uint      `json:"id_publisher" gorm:"primaryKey"`
+	ID             uint      `json:"id_publisher" gorm:"primaryKey"`
 	CreatedAt      time.Time `json:"created_at"`
 	UpdatedAt      time.Time `json:"updated_at"`
 	Publisher_name string    `json:"publisher_name"`

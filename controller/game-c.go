@@ -19,7 +19,7 @@ func GetAllGame(e echo.Context) error {
 func GetByIdGame(e echo.Context) error {
 	var gameId string = e.Param("id")
 	game := gameService.GetByIdGame(gameId)
-	if game.Id_game == 0 {
+	if game.ID == 0 {
 		return e.JSON(http.StatusNotFound, map[string]string{
 			"message": "note not found",
 		})

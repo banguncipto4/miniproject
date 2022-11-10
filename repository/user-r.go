@@ -19,7 +19,7 @@ func (ur *UserRepositoryImpl) GetAllUser() []models.User {
 func (ur *UserRepositoryImpl) GetByIdUser(id string) models.User {
 	var user models.User
 
-	database.DB.First(&user, "id=?", id)
+	database.DB.First(&user, "id_user =?", id)
 
 	return user
 

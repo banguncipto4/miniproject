@@ -19,7 +19,7 @@ func GetAllPublisher(e echo.Context) error {
 func GetByIdPublisher(e echo.Context) error {
 	var publisherId string = e.Param("id")
 	publisher := publisherService.GetByIdPublisher(publisherId)
-	if publisher.Id_publisher == 0 {
+	if publisher.ID == 0 {
 		return e.JSON(http.StatusNotFound, map[string]string{
 			"message": "note not found",
 		})

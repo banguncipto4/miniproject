@@ -129,7 +129,7 @@ func TestUpdategame_Success(t *testing.T) {
 		Game_access: "game_access",
 	}
 
-	gameID := strconv.Itoa(int(game.Id_game))
+	gameID := strconv.Itoa(int(game.ID))
 
 	var token string = getJWTToken(t)
 
@@ -149,7 +149,7 @@ func TestUpdategame_ValidationFailed(t *testing.T) {
 
 	var gameRequest *models.InputGame = &models.InputGame{}
 
-	gameID := strconv.Itoa(int(game.Id_game))
+	gameID := strconv.Itoa(int(game.ID))
 
 	var token string = getJWTToken(t)
 
@@ -168,7 +168,7 @@ func TestDeletegame_Success(t *testing.T) {
 
 	var token string = getJWTToken(t)
 
-	gameID := strconv.Itoa(int(game.Id_game))
+	gameID := strconv.Itoa(int(game.ID))
 
 	apitest.New().
 		Observe(cleanup).
@@ -263,7 +263,7 @@ func TestUpdatepublisher_Success(t *testing.T) {
 		Publisher_desc: "publisher_desc",
 	}
 
-	publisherID := strconv.Itoa(int(publisher.Id_publisher))
+	publisherID := strconv.Itoa(int(publisher.ID))
 
 	var token string = getJWTToken(t)
 
@@ -283,7 +283,7 @@ func TestUpdatepublisher_ValidationFailed(t *testing.T) {
 
 	var publisherRequest *models.InputPublisher = &models.InputPublisher{}
 
-	publisherID := strconv.Itoa(int(publisher.Id_publisher))
+	publisherID := strconv.Itoa(int(publisher.ID))
 
 	var token string = getJWTToken(t)
 
@@ -302,7 +302,7 @@ func TestDeletepublisher_Success(t *testing.T) {
 
 	var token string = getJWTToken(t)
 
-	publisherID := strconv.Itoa(int(publisher.Id_publisher))
+	publisherID := strconv.Itoa(int(publisher.ID))
 
 	apitest.New().
 		Observe(cleanup).
@@ -399,7 +399,7 @@ func TestUpdaterating_Success(t *testing.T) {
 		Game_access: "game_access",
 	}
 
-	ratingID := strconv.Itoa(int(rating.Id_rating))
+	ratingID := strconv.Itoa(int(rating.ID))
 
 	var token string = getJWTToken(t)
 
@@ -419,7 +419,7 @@ func TestUpdaterating_ValidationFailed(t *testing.T) {
 
 	var ratingRequest *models.InputRating = &models.InputRating{}
 
-	ratingID := strconv.Itoa(int(rating.Id_rating))
+	ratingID := strconv.Itoa(int(rating.ID))
 
 	var token string = getJWTToken(t)
 
@@ -438,7 +438,7 @@ func TestDeleterating_Success(t *testing.T) {
 
 	var token string = getJWTToken(t)
 
-	ratingID := strconv.Itoa(int(rating.Id_rating))
+	ratingID := strconv.Itoa(int(rating.ID))
 
 	apitest.New().
 		Observe(cleanup).

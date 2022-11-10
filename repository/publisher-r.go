@@ -19,7 +19,7 @@ func (pr *PublisherRepositoryImpl) GetAllPublisher() []models.Publisher {
 func (pr *PublisherRepositoryImpl) GetByIdPublisher(id string) models.Publisher {
 	var publisher models.Publisher
 
-	database.DB.First(&publisher, "id =?", id)
+	database.DB.First(&publisher, "id_publisher =?", id)
 	return publisher
 }
 

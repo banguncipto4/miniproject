@@ -33,9 +33,9 @@ func Koneksi() {
 func AutoMigrate() {
 	DB.AutoMigrate(
 		&models.User{},
-		&models.Game{},
 		&models.Publisher{},
 		&models.Rating{},
+		&models.Game{},
 	)
 }
 

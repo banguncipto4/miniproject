@@ -7,7 +7,7 @@ import (
 )
 
 type Rating struct {
-	Id_rating uint      `json:"id_rating" gorm:"primaryKey"`
+	ID        uint      `json:"id_rating" gorm:"primaryKey"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 	Star      uint      `json:"star"`
@@ -15,7 +15,7 @@ type Rating struct {
 }
 
 type InputRating struct {
-	Star     uint   `json:"star"     validate:"required"`
+	Star     uint   `json:"star" validate:"required"`
 	Reaction string `json:"reaction" validate:"required"`
 }
 

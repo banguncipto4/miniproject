@@ -19,7 +19,7 @@ func (rr *RatingRepositoryImpl) GetAllRating() []models.Rating {
 func (rr *RatingRepositoryImpl) GetByIdRating(id string) models.Rating {
 	var rating models.Rating
 
-	database.DB.First(&rating, "id =?", id)
+	database.DB.First(&rating, "id_rating =?", id)
 	return rating
 }
 

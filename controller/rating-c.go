@@ -19,7 +19,7 @@ func GetAllRating(e echo.Context) error {
 func GetByIdRating(e echo.Context) error {
 	var ratingId string = e.Param("id")
 	rating := ratingService.GetByIdRating(ratingId)
-	if rating.Id_rating == 0 {
+	if rating.ID == 0 {
 		return e.JSON(http.StatusNotFound, map[string]string{
 			"message": "note not found",
 		})

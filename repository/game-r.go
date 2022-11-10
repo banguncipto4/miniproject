@@ -10,7 +10,8 @@ type GameRepositoryImpl struct{}
 func (gr *GameRepositoryImpl) GetAllGame() []models.Game {
 	var games []models.Game
 
-	database.DB.Find(&games)
+	// load the relations
+	database.DB.Preload("Publisher").Preload("Rating").Find(&games)
 
 	return games
 
@@ -19,7 +20,9 @@ func (gr *GameRepositoryImpl) GetAllGame() []models.Game {
 func (gr *GameRepositoryImpl) GetByIdGame(id string) models.Game {
 	var game models.Game
 
-	database.DB.First(&game, "id =?", id)
+	// load the relations
+	database.DB.Preload("Publisher").Preload("Rating").First(&game, "id =?", id)
+
 	return game
 }
 
@@ -29,13 +32,16 @@ func (gr *GameRepositoryImpl) CreateGame(input models.InputGame) models.Game {
 		Game_type:   input.Game_type,
 		Game_desc:   input.Game_desc,
 		Game_access: input.Game_access,
+		PublisherID: input.PublisherID,
+		RatingID:    input.RatingID,
 	}
 
 	var createGame models.Game = models.Game{}
 
 	result := database.DB.Create(&newGame)
 
-	result.Last(&createGame)
+	// load the relation for publisher and rating
+	result.Preload("Publisher").Preload("Rating").Last(&createGame)
 
 	return createGame
 
@@ -49,6 +55,8 @@ func (gr *GameRepositoryImpl) UpdateGame(id string, input models.InputGame) mode
 	game.Game_type = input.Game_type
 	game.Game_desc = input.Game_desc
 	game.Game_access = input.Game_access
+	game.PublisherID = input.PublisherID
+	game.RatingID = input.RatingID
 
 	database.DB.Save(&game)
 
