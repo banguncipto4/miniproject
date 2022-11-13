@@ -29,6 +29,8 @@ func cleanup(res *http.Response, req *http.Request, apiTest *apitest.APITest) {
 }
 
 func getJWTToken(t *testing.T) string {
+	database.InitTestDB()
+
 	user := database.SeedUser()
 
 	var userRequest *models.Register = &models.Register{
@@ -38,7 +40,7 @@ func getJWTToken(t *testing.T) string {
 
 	var resp *http.Response = apitest.New().
 		Handler(newApp()).
-		Post("/login").
+		Post("/user/login").
 		JSON(userRequest).
 		Expect(t).
 		Status(http.StatusOK).
@@ -83,14 +85,16 @@ func TestGetgame_NotFound(t *testing.T) {
 }
 
 func TestCreategame_Success(t *testing.T) {
+	publisher := database.SeedPublisher()
+	rating := database.SeedRating()
 
 	var gameRequest *models.InputGame = &models.InputGame{
 		Game_name:   "game_name",
 		Game_type:   "game_type",
 		Game_desc:   "game_desc",
 		Game_access: "game_access",
-		PublisherID: 1,
-		RatingID:    1,
+		PublisherID: publisher.ID,
+		RatingID:    rating.ID,
 	}
 
 	var token string = getJWTToken(t)
@@ -102,7 +106,7 @@ func TestCreategame_Success(t *testing.T) {
 		Header("Authorization", token).
 		JSON(gameRequest).
 		Expect(t).
-		Status(http.StatusCreated).
+		Status(http.StatusAccepted).
 		End()
 }
 
@@ -129,8 +133,8 @@ func TestUpdategame_Success(t *testing.T) {
 		Game_type:   "game_type",
 		Game_desc:   "game_desc",
 		Game_access: "game_access",
-		PublisherID: 1,
-		RatingID:    1,
+		PublisherID: game.PublisherID,
+		RatingID:    game.RatingID,
 	}
 
 	gameID := strconv.Itoa(int(game.ID))
@@ -144,7 +148,7 @@ func TestUpdategame_Success(t *testing.T) {
 		Header("Authorization", token).
 		JSON(gameRequest).
 		Expect(t).
-		Status(http.StatusOK).
+		Status(http.StatusAccepted).
 		End()
 }
 
@@ -180,7 +184,7 @@ func TestDeletegame_Success(t *testing.T) {
 		Delete("/game/"+gameID).
 		Header("Authorization", token).
 		Expect(t).
-		Status(http.StatusOK).
+		Status(http.StatusAccepted).
 		End()
 }
 
@@ -240,7 +244,7 @@ func TestCreatepublisher_Success(t *testing.T) {
 		Header("Authorization", token).
 		JSON(publisherRequest).
 		Expect(t).
-		Status(http.StatusCreated).
+		Status(http.StatusAccepted).
 		End()
 }
 
@@ -278,7 +282,7 @@ func TestUpdatepublisher_Success(t *testing.T) {
 		Header("Authorization", token).
 		JSON(publisherRequest).
 		Expect(t).
-		Status(http.StatusOK).
+		Status(http.StatusAccepted).
 		End()
 }
 
@@ -314,7 +318,7 @@ func TestDeletepublisher_Success(t *testing.T) {
 		Delete("/publisher/"+publisherID).
 		Header("Authorization", token).
 		Expect(t).
-		Status(http.StatusOK).
+		Status(http.StatusAccepted).
 		End()
 }
 
@@ -374,7 +378,7 @@ func TestCreaterating_Success(t *testing.T) {
 		Header("Authorization", token).
 		JSON(ratingRequest).
 		Expect(t).
-		Status(http.StatusCreated).
+		Status(http.StatusAccepted).
 		End()
 }
 
@@ -396,11 +400,9 @@ func TestCreaterating_ValidationFailed(t *testing.T) {
 func TestUpdaterating_Success(t *testing.T) {
 	var rating models.Rating = database.SeedRating()
 
-	var ratingRequest *models.InputGame = &models.InputGame{
-		Game_name:   "game_name",
-		Game_type:   "game_type",
-		Game_desc:   "game_desc",
-		Game_access: "game_access",
+	var ratingRequest *models.InputRating = &models.InputRating{
+		Star:     2,
+		Reaction: "terrible",
 	}
 
 	ratingID := strconv.Itoa(int(rating.ID))
@@ -414,7 +416,7 @@ func TestUpdaterating_Success(t *testing.T) {
 		Header("Authorization", token).
 		JSON(ratingRequest).
 		Expect(t).
-		Status(http.StatusOK).
+		Status(http.StatusAccepted).
 		End()
 }
 
@@ -450,7 +452,7 @@ func TestDeleterating_Success(t *testing.T) {
 		Delete("/rating/"+ratingID).
 		Header("Authorization", token).
 		Expect(t).
-		Status(http.StatusOK).
+		Status(http.StatusAccepted).
 		End()
 }
 
