@@ -1,5 +1,6 @@
 module MINIPROJECT
 
+// +heroku goVersion go1.11
 go 1.19
 
 require (
