@@ -8,6 +8,7 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
+// koneksi lokal
 func main() {
 	database.Koneksi()
 
