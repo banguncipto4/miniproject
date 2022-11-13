@@ -21,7 +21,7 @@ func GetByIdUser(c echo.Context) error {
 
 	user := userService.GetByIdUser(userId)
 
-	if user.Id_user == 0 {
+	if user.ID == 0 {
 		return c.JSON(http.StatusNotFound, map[string]string{
 			"message": "note not found",
 		})

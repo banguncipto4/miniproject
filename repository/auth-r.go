@@ -32,7 +32,7 @@ func (a *AuthRepositoryImpl) Login(input models.Login) string {
 	var user models.User = models.User{}
 
 	database.DB.First(&user, "email", input.Email)
-	if user.Id_user == 0 {
+	if user.ID == 0 {
 		return ""
 	}
 
@@ -41,7 +41,7 @@ func (a *AuthRepositoryImpl) Login(input models.Login) string {
 	if err != nil {
 		return ""
 	}
-	tokens := tokenjwt.CreateToken(user.Id_user)
+	tokens := tokenjwt.CreateToken(user.ID)
 
 	return tokens
 }

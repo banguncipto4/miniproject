@@ -55,13 +55,19 @@ func InitTestDB() {
 	AutoMigrate()
 }
 
+// SeedGame returns game sample data
 func SeedGame() models.Game {
+	// add publisher and rating data as well
+	publisher := SeedPublisher()
+	rating := SeedRating()
 
 	var game models.Game = models.Game{
 		Game_name:   "game_name",
 		Game_type:   "game_type",
 		Game_desc:   "game_desc",
 		Game_access: "game_access",
+		PublisherID: publisher.ID,
+		RatingID:    rating.ID,
 	}
 
 	if err := DB.Create(&game).Error; err != nil {
@@ -134,6 +140,7 @@ func SeedUser() models.User {
 	password, _ := bcrypt.GenerateFromPassword([]byte("123123"), bcrypt.DefaultCost)
 
 	var user models.User = models.User{
+		Name:     "test",
 		Email:    "testing@mail.com",
 		Password: string(password),
 	}
