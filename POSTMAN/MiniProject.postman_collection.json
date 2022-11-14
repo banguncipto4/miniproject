@@ -1,0 +1,675 @@
+{
+	"info": {
+		"_postman_id": "dc3c0011-d4ff-48ea-8014-478a58e6e0ee",
+		"name": "MiniProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23527951"
+	},
+	"item": [
+		{
+			"name": "Register and User",
+			"item": [
+				{
+					"name": "user-2-login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2NjgzMTQ0ODksInVzZXJJZCI6MX0.Gl__RdMH7jhUrn-bNA2yreNg7Xq_TFdtK8sovktRj70",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"tesulang1@gmail.com\",\r\n    \"password\": \"tesulang1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-1-register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"tesulang\",\r\n    \"email\": \"tesulang1@gmail.com\",\r\n    \"password\": \"tesulang1\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-3-get all user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2NjgzNDIzMzgsInVzZXJJZCI6MX0.eCNSHnP_SxIG8-Id8GGKAON9P3VXQgfwnoD0V6hycpI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-4-get by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2NjgzNDIzMzgsInVzZXJJZCI6MX0.eCNSHnP_SxIG8-Id8GGKAON9P3VXQgfwnoD0V6hycpI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-5-update by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2Njc5OTg5MDksInVzZXJJZCI6Mn0.9Nq5DKfQhkTw7yCKKFmBUmKyBPhUreMoGICcv610TwQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"tehgelas12\",\r\n    \"email\": \"teshgelas12@gmail.com\",\r\n    \"password\": \"tehsatu12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user-6-delete by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2Njc2NTMzMjAsInVzZXJJZCI6MX0.WPvvhZSOilqnrxY7NSpy_sGevSOokMc1-K-DyBnZyIU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Game",
+			"item": [
+				{
+					"name": "game-1-create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2NjgzNDIzMzgsInVzZXJJZCI6MX0.eCNSHnP_SxIG8-Id8GGKAON9P3VXQgfwnoD0V6hycpI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_publisher\":1,\r\n    \"id_rating\":1,\r\n    \"game_name\": \"pointblank4\",\r\n    \"game_type\": \"shoot and fire\",\r\n    \"game_desc\": \"Point Blank adalah sebuah permainan komputer ber-genre FPS yang dimainkan secara online. Permainan ini dikembangkan oleh Zepetto dari Korea Selatan dan dipublikasikan oleh Zepetto. Selain di Korea Selatan, permainan ini mempunyai server sendiri di beberapa negara seperti Thailand, Rusia, Indonesia, Brasil, Turki, Amerika Serikat, dan Peru. Di Indonesia, permainan ini sekarang telah dikelola oleh Zepetto.\",\r\n    \"game_access\": \"free\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/game",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "game-2-get all game",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2NjgzNDIzMzgsInVzZXJJZCI6MX0.eCNSHnP_SxIG8-Id8GGKAON9P3VXQgfwnoD0V6hycpI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/game",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "game-3-get game by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2NjgzNDIzMzgsInVzZXJJZCI6MX0.eCNSHnP_SxIG8-Id8GGKAON9P3VXQgfwnoD0V6hycpI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/game/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "game-4-update game by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2Njc5MTcyNzUsInVzZXJJZCI6MX0.vrRsy8JHDVhH-jM6w_VMviEo64Nc39UnJu-3NWzVWg4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"game_name\": \"pointblankoffline\",\r\n  \"game_type\": \"shoot and fire\",\r\n  \"game_desc\": \"Point Blank adalah sebuah permainan komputer ber-genre FPS yang dimainkan secara online. Permainan ini dikembangkan oleh Zepetto dari Korea Selatan dan dipublikasikan oleh Zepetto. Selain di Korea Selatan, permainan ini mempunyai server sendiri di beberapa negara seperti Thailand, Rusia, Indonesia, Brasil, Turki, Amerika Serikat, dan Peru. Di Indonesia, permainan ini sekarang telah dikelola oleh Zepetto.\",\r\n  \"game_access\": \"pay\"  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/game/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "game-5-delete game by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/game/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"game",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Publisher",
+			"item": [
+				{
+					"name": "publisher-1-create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2NjgzNDIzMzgsInVzZXJJZCI6MX0.eCNSHnP_SxIG8-Id8GGKAON9P3VXQgfwnoD0V6hycpI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"publisher_name\": \"maxus\",\r\n    \"publisher_desc\": \"gamme publisher dengan andalan mmorpg\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/publisher",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"publisher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publisher-2-get all publisher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2NjgzNDIzMzgsInVzZXJJZCI6MX0.eCNSHnP_SxIG8-Id8GGKAON9P3VXQgfwnoD0V6hycpI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/publisher",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"publisher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get publisher by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2NjgzNDIzMzgsInVzZXJJZCI6MX0.eCNSHnP_SxIG8-Id8GGKAON9P3VXQgfwnoD0V6hycpI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/publisher/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"publisher",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update publisher by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2NjgzNDEzMzQsInVzZXJJZCI6MX0.KESEIGN2E28rrEWRplN1X-rhybv5nG-bojhTLDnvJBA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"publisher_name\": \"gemscooltesupdate\",\r\n    \"publisher_desc\": \"update publisher asal indonesia, salah satu game yang membuatnya terkenal adalah pointblank123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/publisher/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"publisher",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete publisher by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/publisher/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"publisher",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rating",
+			"item": [
+				{
+					"name": "rating-1-create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2NjgzNDIzMzgsInVzZXJJZCI6MX0.eCNSHnP_SxIG8-Id8GGKAON9P3VXQgfwnoD0V6hycpI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"star\":1,\r\n    \"reaction\":\"bad\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/rating",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rating"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rating-2-get all rating",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2NjgzNDIzMzgsInVzZXJJZCI6MX0.eCNSHnP_SxIG8-Id8GGKAON9P3VXQgfwnoD0V6hycpI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rating",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rating"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rating-3-get rating by id Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2NjgzNDIzMzgsInVzZXJJZCI6MX0.eCNSHnP_SxIG8-Id8GGKAON9P3VXQgfwnoD0V6hycpI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rating/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rating",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rating-4-update rating by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rating/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rating",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rating-5-delete rating by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmUiOjE2NjgzNDEzMzQsInVzZXJJZCI6MX0.KESEIGN2E28rrEWRplN1X-rhybv5nG-bojhTLDnvJBA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rating",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rating"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
