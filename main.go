@@ -4,13 +4,14 @@ import (
 	"MINIPROJECT/database"
 	"MINIPROJECT/middlewares"
 	"MINIPROJECT/routes"
+	"fmt"
+	"os"
 
 	"github.com/labstack/echo/v4"
 )
 
-// koneksi lokal
 func main() {
-	database.Koneksi()
+	database.InitDB()
 
 	server := echo.New()
 
@@ -18,6 +19,7 @@ func main() {
 
 	routes.SetupRoute(server)
 
-	server.Logger.Fatal(server.Start(":8080"))
+	port := fmt.Sprintf(":%s", os.Getenv("PORT"))
 
+	server.Logger.Fatal(server.Start(port))
 }
